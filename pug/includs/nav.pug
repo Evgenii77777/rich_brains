@@ -1,0 +1,22 @@
+- tags =["Business & Management","Computing & IT","Fashion & Media",'Finance & Accounting',"Law & Criminology","Marketing & Communications"]
+- secondTags=["Market Research Executive","Child Psychologist","Guidance Counsellor","Behaviour Analyst","Recreational Therapist"]
+
+nav.nav 
+    button.nav-tags__button Choose YOUR Career
+    .nav__wrapper 
+        img(src="../../assets/icon_education_type.png", alt="icon-education")
+        h2.nav__title Careers
+    .nav-menu 
+        ul.nav__list
+            for i in tags 
+                li.nav__item
+                    button.nav-menu__button
+                        p.nav__tags=i
+            li.nav__item.nav__item--active
+                button.nav-menu__button.nav-menu__button--active
+                    p.nav__tags Psychology & Social Sciences
+                ul.nav-menu__list 
+                    for j in secondTags 
+                        li.nav-menu__item 
+                            a(href="#").nav-menu__link=j 
+    button.nav__button Show all programmes

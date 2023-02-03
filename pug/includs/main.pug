@@ -1,0 +1,43 @@
+- mainLinks= [{price:"£12,650",main:true,img:'../../assets/logo.jpg',category:"Business & Management",title:'Master of Business Administration (CMI)',description:'Postgraduate',date:'Every 12 weeks',button:'More Info',education:'../../assets/education.png',schedule:"../../assets/icon_date.png"},{title:'MSc Data Analytics and Information Systems Management',description:"Duration:",min:'Minimum: 18 months',max:'Maximum: 36 months',text:'Start Dates:',button:'More Info',date:'January, April, July, October',price:"£8,500"},{price:"£12,650",main:true,img:'../../assets/logo2.jpg',category:"Business & Management",title:'Master of Business Administration (CMI)',description:'Postgraduate',date:'Every 12 weeks',button:'More Info',education:'../../assets/education.png',schedule:"../../assets/icon_date.png"},{title:'MSc Data Analytics and Information Systems Management',description:"Duration:",min:'Minimum: 18 months',max:'Maximum: 36 months',text:'Start Dates:',button:'More Info',date:'January, April, July, October',price:"£8,500"},{price:"£12,650",main:true,img:'../../assets/logo3.jpg',category:"Business & Management",title:'Master of Business Administration (CMI)',description:'Postgraduate',date:'Every 12 weeks',button:'More Info',education:'../../assets/education.png',schedule:"../../assets/icon_date.png"},{main:true,img:'../../assets/logo4.jpg',category:"Business & Management",title:'Master of Business Administration (CMI)',description:'Postgraduate',date:'January, April, July, October, November',button:'More Info',education:'../../assets/education.png',schedule:"../../assets/icon_date.png"}]
+
+mixin item-base(i)
+            li.main__item.item 
+                a.main__link(href="#") 
+                    button.main__button--mobile
+                        include ../../assets/green.svg
+                    img.main__logo(src=i.img, alt="icon-brand")
+                    h3.main__category=i.category
+                    h2.main__title=i.title
+                    span.main__description--mobile=i.description
+                    ul.item-list
+                        li.item-list__item
+                            img.item-list__education(src=i.education, alt="icon-education")
+                            span.item-list__description=i.description
+                        li.item-list__item
+                            img.item-list__schedule(src=i.schedule, alt="icon-schedule")
+                            span.item-list__date=i.date
+                    span.main__price=i.price
+                    button.main__button=i.button
+
+mixin item-second(i)
+            li.main__item.item.item--second
+                a.item__link(href="#") 
+                    button.item__button
+                        include ../../assets/cross.svg
+                    h2.item__title=i.title
+                    span.item__description=i.description
+                    span.item__level=i.min
+                    span.item__level=i.max
+                    span.item__text=i.text
+                    span.item__date=i.date
+                    span.item__price=i.price
+                    button.main__button.main__button--second=i.button
+
+main.main 
+    ul.main__list 
+        for i in mainLinks
+            if i.main  
+                +item-base(i)
+            else 
+                +item-second(i)
+    button.button More programmes
